@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 
 public class Empleado
@@ -328,37 +327,19 @@ class Program
     static void Main(string[] args)
     {
         Tienda tienda = new Tienda("Tienda Online XYZ", "Calle Principal #123", "809-555-1234");
-
-        // Crear productos
         Producto p1 = new Producto("Laptop Dell", "Laptop de alto rendimiento", 1200.99m, 10);
         Producto p2 = new Producto("Mouse Logitech", "Mouse inalámbrico", 25.50m, 50);
         Producto p3 = new Producto("Teclado Mecánico", "Teclado con luces RGB", 75.99m, 30);
-
-        // Crear cliente
         Cliente cliente = new Cliente("Juan Pérez", "Av. Siempre Viva #456", "juan.perez@example.com");
-
-        // Cliente agrega productos al carrito
         p1.AgregarAlCarrito(cliente.Carrito, 1);
         p2.AgregarAlCarrito(cliente.Carrito, 2);
-
-        // Ver productos en el carrito
         cliente.VerCarrito();
-
-        // Cliente realiza compra
         cliente.RealizarCompra();
-
-        // Crear empleado
         Empleado empleado = new Empleado("María Gómez", "Calle Secundaria #789", "maria.gomez@example.com");
         tienda.RegistrarEmpleado(empleado);
-
-        // Registrar pedido en la tienda
         Pedido pedido = new Pedido(cliente.HistorialDeCompras[0].Productos);
         tienda.RegistrarPedido(pedido);
-
-        // Confirmar el pedido
         pedido.ConfirmarPedido();
-
-        // Consultar ventas del empleado
         empleado.ConsultarVentas();
     }
 }
